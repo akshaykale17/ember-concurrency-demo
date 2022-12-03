@@ -1,0 +1,26 @@
+<h1>Data From Model's Hook</h1>
+<p>Time - {{this.data.time.updated}}</p>
+<p>USD - {{this.data.bpi.USD.rate}}</p>
+<p>GBP - {{this.data.bpi.GBP.rate}}</p>
+<p>EUR - {{this.data.bpi.EUR.rate}}</p>
+
+<h1>Live Data Using Ember Concurrency </h1>
+<div>Time - {{this.serviceDate}} </div>
+<div>USD -{{this.serviceUSD}}
+  <div
+    style='{{if this.isUSDPositive "color:red;" "color:green;"}}'
+  >{{this.changeUSD}}</div></div>
+<div>GBP -
+  {{this.serviceGBP}}
+  <div
+    style='{{if this.isGBPPositive "color:red;" "color:green;"}}'
+  >{{this.changeGBP}}</div></div>
+<div>EUR -
+  {{this.serviceEUR}}
+  <div
+    style='{{if this.isEURPositive "color:red;" "color:green;"}}'
+  >{{this.changeEUR}}</div></div>
+
+{{#if this.waitAFewSeconds.isRunning}}
+  <button type='button' {{on 'click' this.cancel}}>Cancel Task</button>
+{{/if}}
